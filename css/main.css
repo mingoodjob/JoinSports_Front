@@ -5,10 +5,11 @@ p {
 }
 
 .modal_body {
+    z-index: 80;
     width: 100%;
     height: 100vh;
     background-color: rgba(255, 0, 0, 0.3);
-    display: flex;
+    display: none;
     position: fixed;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,7 @@ p {
 .modal_box {
     border-radius: 50px;
     max-width: 800px;
-    max-height: 800px;
+    max-height: 1200px;
     background-color: white;
     display: flex;
     overflow: hidden;
@@ -100,16 +101,40 @@ p {
 }
 
 .modal_comment {
-    padding: 0 20px;
+    padding: 5px 10px;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
-.modal_comment>div {
-    width: 620px;
-    height: 150px;
+.comment_pr_photo {
+    margin: 0 10px 0 0;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 70%;
+}
+.comment_pr_photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment_content{
+    max-width: 550px;
+    padding: 10px 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 235, 121);
+    color: rgb(0, 0, 0);
+}
+.comment_content_box_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 600px;
     overflow: scroll;
-    border: 1px solid #989898;
+}
+.comment_content_time{
+    font-size:9px
 }
 
 .modal_comment_input {
@@ -119,10 +144,22 @@ p {
 }
 
 .modal_comment_input>div {
-    border-radius: 20px;
+    border-radius: 10px;
     border: 2px solid #d4d4d4;
     width: 620px;
     height: 50px;
+    overflow: hidden;
+}
+.modal_comment_input div textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    padding: 5px;
+}
+
+.modal_comment_input div textarea:focus{
+    outline: none;
 }
 
 .main {
