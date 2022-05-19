@@ -1,7 +1,10 @@
-body,h1,p{
+body,
+h1,
+p {
     margin: 0;
 }
-.modal_body{
+
+.modal_body {
     width: 100%;
     height: 100vh;
     background-color: rgba(255, 0, 0, 0.3);
@@ -11,105 +14,159 @@ body,h1,p{
     align-items: center;
 }
 
-.modal_box{
+.modal_box {
     border-radius: 50px;
-    width: 80%;
-    height: 70%;
+    max-width: 800px;
+    max-height: 800px;
     background-color: white;
     display: flex;
     overflow: hidden;
     flex-direction: column;
 }
-.modal_title{
+
+.modal_title {
     width: 100%;
     background-color: #000000;
-    height: 10%;
+    height: 50px;
     color: white;
     text-align: center;
-    font-size: 30px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.modal_pr_info{
-    padding: 30px 0px;
+.pr_desc_title_tmi{
+    background: rgb(0, 0, 0);
+    padding: 7px 13px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 100px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 14px;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
 }
-.modal_pr_info div{
-    width: 400px;
-    height: 200px;
-    background-color: #e2e2e2;
+
+.modal_pr_info {
+    padding: 30px 30px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.pr_desc  {
+    margin: 0 0 0 40px;
+    max-width: 350px;
+    max-height: 500px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
-.modal_pr_info div:first-child{
+
+.pr_desc div{
+    display: flex;
+}
+.pr_desc_content{
+    padding: 7px 13px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 100px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 14px
+}
+.pr_desc_title{
+    background: rgb(244, 244, 244);
+    padding: 7px 13px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 100px;
+    color: rgb(255, 136, 0);
+    font-weight: bold;
+    font-size: 14px
+}
+
+.pr_photo {
     border-radius: 70%;
     width: 200px;
     height: 200px;
     background-color: #e2e2e2;
     overflow: hidden;
 }
+.pr_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .modal_comment {
+    padding: 0 20px;
     display: flex;
     justify-content: center;
 }
-.modal_comment > div{
-    width: 720px;
-    height: 300px;
-    background: rgb(89, 89, 89);
+
+.modal_comment>div {
+    width: 620px;
+    height: 150px;
     overflow: scroll;
+    border: 1px solid #989898;
 }
-.modal_comment_input{
-    
-    
-    padding: 20px 10px;
+
+.modal_comment_input {
+    padding: 20px 20px;
     display: flex;
     justify-content: center;
 }
-.modal_comment_input > div{
+
+.modal_comment_input>div {
     border-radius: 20px;
     border: 2px solid #d4d4d4;
-    width: 720px;
-    height: 100px;
+    width: 620px;
+    height: 50px;
 }
-.main{
+
+.main {
     max-width: 1200px;
     margin: 0 auto;
 }
-.slide{
+
+.slide {
     /* padding: 0.5rem; */
     width: 100%;
     height: 350px;
     overflow: hidden;
 }
-.slide > img{
+
+.slide>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.category_menu{
+
+.category_menu {
     padding: 2rem 0 1rem 0;
     display: flex;
     justify-content: space-around;
 }
 
-.category_menu > img{
+.category_menu>img {
     width: 10%;
     height: 10%;
     transition: all 0.3s linear;
 }
-.category_menu > img:hover{
+
+.category_menu>img:hover {
     transform: rotate(360deg);
 }
 
-.member_card{
+.member_card {
     padding: 2rem 0 1rem 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.member_card > div{
+.member_card>div {
     border-radius: 20px;
     margin: 1%;
     width: 30%;
@@ -117,18 +174,49 @@ body,h1,p{
     background-color: #e2e2e2;
     overflow: hidden;
 }
-.member_card > div:hover img{
+
+.member_card>div:hover img {
     transform: scale(1.2);
+    opacity: 0.5;
 }
 
-.member_card > div:first-child{
+.member_card>div:first-child {
     border: 0.5rem solid #ff0000;
     box-sizing: border-box;
 }
 
-.member_card > div > img{
+.member_card>div>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: all 0.2s linear;
+}
+
+@media screen and (max-width: 650px) {
+    .modal_pr_info{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pr_desc  {
+        max-width: 450px;
+        max-height: 700px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 0 0;
+    }
+
+}
+@media screen and (max-width: 1000px) {    
+    .member_card>div {
+        width: 48%;
+    }
+ 
+}
+@media screen and (max-width: 700px) {    
+    .member_card>div {
+        width: 98%;
+    }
+ 
 }
