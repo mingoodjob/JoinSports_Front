@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const backend_base_url = "http://127.0.0.1:4000"
+        const frontend_base_url = "http://127.0.0.1:5500"
+
+        async function handleSignup(){  // async: 비동기 데이터 주고받기가 완료될때까지 기다린 후 다음 라인을 실행
+
+            const signupData = {
+                email : document.getElementById("floatingInput").value,
+                password : document.getElementById("floatingPassword").value
+            }
+        
+            const response = await fetch(`${backend_base_url}/comment`,{
+                method:'POST',
+                body:JSON.stringify(signupData)
+            })
+        
+            response_json = await response.json()
+        
+            if (response.status == 200){
+                window.location.replace(`${frontend_base_url}/main.html`);
+            }else{
+                alert(response.status)
+            }
+        }
+
+    </script>
+</body>
+    안녕<input id="floatingInput" type="text">
+    안녕2<input id="floatingPassword" type="password">
+    <button onclick="handleSignup()">버튼 입니다</button>
+</html>

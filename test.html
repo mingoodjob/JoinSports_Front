@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ 
+<html>
+<head>
+<title>:: AJAX 파일전송 ::</title>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- <script async src="https://imgbb.com/upload.js"></script> -->
+<script type="text/javascript">
+    function ajaxFileUpload() {
+        var form = jQuery("ajaxFrom")[0];
+        var formData = new FormData(form);
+        formData.append("message", "ajax로 파일 전송하기");
+ 
+        var fileValue = $("#ajaxFile").val().split("\\");        
+        var fileName = fileValue[fileValue.length-1].replace(/(.png|.jpg|.jpeg|.gif)$/, ''); // 파일명
+        console.log("fileName : "+fileName);
+        console.log("fd");
+         
+/*         $.get('http://127.0.0.1/aj/imgbb/key', function(data, status){
+            if(status=="success"){
+                 
+            }
+           console.log(data);
+           console.log(status);
+       });
+         
+        return;
+         */
+        // var urlImg="http://localhost:8080/imgbb/imgs/life.jpg";
+        formData.append("key", "d889e8da87c9070b622a1dc576797216");
+        formData.append("image", jQuery("#ajaxFile")[0].files[0]);        
+        formData.append("name", fileName);
+         
+        //formData.append("expiration", "");        
+         
+        console.log("파일 데이터");
+        console.dir(jQuery("#ajaxFile")[0].files[0]);
+        console.log("-------------");
+        console.log(jQuery("#ajaxFile")[0].files[0]);
+         
+        //return;
+         
+        jQuery.ajax({
+              url : "https://api.imgbb.com/1/upload"
+            , type : "POST"
+            , processData : false
+             ,contentType : false
+            , data : formData
+            , success:function(imgbbReturn) {
+                 
+                if(imgbbReturn.success==true){
+                     
+                    console.dir(imgbbReturn);
+                     
+                    var imgbb = imgbbReturn.data;
+                     
+                    console.log(imgbb.delete_url);
+                    console.log(imgbb.display_url);
+                    console.log(imgbb.expiration);
+                    console.log(imgbb.id);
+                     
+                    console.log("imgbb.image.url : " +imgbb.image.url);
+                    //image: {filename: "summerfield-336672-640-jpg.jpg", name: "summerfield-336672-640-jpg", mime: "image/jpeg", extension: "jpg", url: "https://i.ibb.co/KXfCM3m/summerfield-336672-640-jpg.jpg"}
+                    console.log(imgbb.size);
+                    //thumb: {filename: "summerfield-336672-640-jpg.jpg", name: "summerfield-336672-640-jpg", mime: "image/jpeg", extension: "jpg", url: "https://i.ibb.co/yXZLwbV/summerfield-336672-640-jpg.jpg"}
+                    console.log("imgbb.thumb.url : " +imgbb.thumb.url);
+                     
+                     
+                    console.log(imgbb.time);
+                    console.log(imgbb.title);
+                    console.log(imgbb.url);
+                    console.log(imgbb.url_viewer);
+                     
+                     
+                    console.log("반환값");
+                    //console.dir(json);                
+                    //var obj = JSON.parse(json);
+                     
+                }
+ 
+            }
+        });
+    }
+</script>
+</head>
+<body>
+<form enctype="multipart/form-data" id="ajaxFrom" method="post">
+    <input type="file" id="ajaxFile"/>
+    
+    <input type="button" onClick="ajaxFileUpload();" value="업로드"/>
+</form>
+</body>
+</html>
+ 
+<!-- <a href="http://localhost/ajSecurity/imgbb/key" >http://localhost/ajSecurity/imgbb/key</a>
+<br></br>
+<a href="http://localhost/aj/imgbb/key" >http://localhost/aj/imgbb/key</a>
+ 
+ -->

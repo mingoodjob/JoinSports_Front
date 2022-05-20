@@ -103,7 +103,8 @@ p {
 .modal_comment {
     padding: 5px 10px;
     display: flex;
-    align-items: center;
+    justify-content: start;
+    margin: 0px 10px;
 }
 
 .comment_pr_photo {
@@ -127,10 +128,12 @@ p {
     color: rgb(0, 0, 0);
 }
 .comment_content_box_list{
+    max-height: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-height: 300px;
+    /* align-items: center; */
+    justify-content: center;
+    /* max-height: 300px; */
     overflow: scroll;
 }
 .comment_bottom_info{
@@ -147,18 +150,37 @@ p {
 }
 
 .modal_comment_input {
+    position: relative;
     padding: 20px 20px;
     display: flex;
     justify-content: center;
 }
 
 .modal_comment_input>div {
+    position: relative;
     border-radius: 10px;
     border: 2px solid #d4d4d4;
     width: 620px;
     height: 50px;
     overflow: hidden;
 }
+.comment_button {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    z-index: 10;
+    color:white;
+    font-size:12px;
+    background: rgb(118, 80, 255);
+    border-radius: 10px;
+    right: 25px;
+    bottom: 25px;
+    border: none;
+    opacity: 0.7;
+    display: block;
+    cursor: pointer;
+}
+
 .modal_comment_input div textarea{
     width: 100%;
     height: 100%;
@@ -273,20 +295,27 @@ p {
     }
 }
 
-@media screen and (max-width: 550px) {
-    .comment_pr_photo{
-        display: none;
+@media screen and (max-height: 1110px) {
+    .comment_content_box_list{
+        max-height: 380px;
     }
 }
 
+
 @media screen and (max-height: 900px) {
     .comment_content_box_list{
-        height: 200px;
+        max-height: 200px;
     }
 }
 
 @media screen and (max-height: 800px) {
     .comment_content_box_list{
-        height: 50px;
+        max-height: 150px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .comment_pr_photo{
+        display: none;
     }
 }
