@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="./js/main.js"></script>
+    <!-- <script src="./js/slide.js"></script> -->
     <title>메인페이지</title>
 </head>
 
@@ -15,6 +15,57 @@
     <!-- modal box -->
     <div id="modal_body" class="modal_body">
         <div class="modal_box">
+
+            <!-- 수정 팝업 -->
+            <div class="comment_edit_box">
+                <div class="comment_edit_title">
+                    <div onclick="comment_edit_close()">
+                        취소
+                    </div>
+                    <div>
+                        댓글 수정
+                    </div>
+                    <div onclick="pr_edit_submit('${email}')">
+                        수정
+                    </div>
+                </div>
+                <div class="pr_edit_input">
+                    <textarea value="text"></textarea>
+                </div>
+            </div>
+            <!-- 수정 팝업끝 -->
+
+            <!-- 삭제 팝업 -->
+            <div class="comment_delete">
+                <button>삭제</button>
+                <button>취소</button>
+            </div>
+            <!-- 삭제 팝업끝 -->
+
+
+
+
+            <!-- 삭제 팝업 -->
+            <div class="comment_edit_box">
+                <div class="comment_edit_title">
+                    <div onclick="comment_edit_close()">
+                        취소
+                    </div>
+                    <div>
+                        댓글 수정
+                    </div>
+                    <div onclick="pr_edit_submit('${email}')">
+                        수정
+                    </div>
+                </div>
+                <div class="pr_edit_input">
+                    <textarea value="text"></textarea>
+                </div>
+            </div>
+            <!-- 삭제 팝업끝 -->
+
+
+
             <!-- 프로필 편집 -->
             <div id="pr_edit_box" class="pr_edit_box">
                 <div class="pr_edit_title">
@@ -33,17 +84,18 @@
                 </div>
             </div>
             <!-- 프로필 편집 END -->
-            <div class="modal_title">
-                멤버 카드
-            </div>
+
+
+
+            <div class="modal_title">멤버 카드</div>
             <div class="modal_pr_info">
                 <div class="pr_photo">
-                    <img src="./img/1.jpeg">
+                    <img src="">
                 </div>
                 <div class="pr_desc">
                     <div>
                         <div class="pr_desc_title">닉네임</div>
-                        <div class="pr_desc_content">감자탕먹고싶다</div>
+                        <div id="pr_desc_content" class="pr_desc_content">감자탕먹고싶다</div>
                         <div onclick=pr_edit() class="pr_desc_edit">프로필편집</div>
                     </div>
                     <div>
@@ -93,17 +145,21 @@
             </div>
             <!-- 댓글 입력창 끝 -->
 
+            <div class="comment_edit_box">
+
+            </div>
+
         </div>
     </div>
 
-
-    <!-- main box -->
-    <div class="slide">
-        <img src="./img/slide2.jpeg">
+    <div id="slide_main" class="slide_main">
+        <img src="./img/baseball/1.jpg" id="slide" class="fadein">
     </div>
+
+
     <div class="main">
-        
-        
+
+
         <!-- 카테고리 메뉴 시작 -->
         <div class="category_menu">
             <img src="img/soccer.png">
@@ -116,7 +172,7 @@
 
         <!-- 멤버 리스트 시작 -->
         <div id="member_list" class="member_card">
-           <!-- <div onclick="modal('6288f70f214fdb3a75be6a45')">
+            <!-- <div onclick="modal('6288f70f214fdb3a75be6a45')">
                 <img src="./img/1.jpeg">
             </div> -->
         </div>

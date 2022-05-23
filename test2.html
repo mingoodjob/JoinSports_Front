@@ -1,42 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
-    <script>
-        const backend_base_url = "http://127.0.0.1:4000"
-        const frontend_base_url = "http://127.0.0.1:5500"
+    <button id="btnfadeOut"> Fade Out</button>
+<button id="btnfadeIn"> Fade In</button>
+<div id="img1">글자가 이쁘게 사라진다.</div>
 
-        async function handleSignup(){  // async: 비동기 데이터 주고받기가 완료될때까지 기다린 후 다음 라인을 실행
 
-            const signupData = {
-                email : document.getElementById("floatingInput").value,
-                password : document.getElementById("floatingPassword").value
-            }
-        
-            const response = await fetch(`${backend_base_url}/comment`,{
-                method:'POST',
-                body:JSON.stringify(signupData)
-            })
-        
-            response_json = await response.json()
-        
-            if (response.status == 200){
-                window.location.replace(`${frontend_base_url}/main.html`);
-            }else{
-                alert(response.status)
-            }
+<script type="text/javascript">
+	var opacity =0;
+	var intervalID=0;
+	 
+
+	//순수 자바스크립트 클릭 이벤트 Fsade out 실행
+	document.getElementById('btnfadeOut').addEventListener('click', function() {
+		intervalID = setInterval(hide,200);
+	});
+    
+	//순수 자바스크립트 클릭 이벤트 Fade in
+	document.getElementById('btnfadeIn').addEventListener('click', function() {
+		intervalID = setInterval(show,200);
+	});
+ 
+	function hide(){
+		var div = document.getElementById("img1");
+		opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
+		
+		if(opacity>0){
+            //Fade out 핵심 부분
+			opacity = opacity-0.1;
+			div.style.opacity=opacity;
+			//img.style.opacity=opacity;
+		}
+		else{
+			clearInterval(intervalID);
+		}
+	}
+	
+	function show(){
+		var div = document.getElementById("img1");
+		opacity = Number(window.getComputedStyle(div).getPropertyValue("opacity"));
+		
+		if(opacity<1){
+        	//Fade in 핵심 부분
+			opacity = opacity+0.1;
+			div.style.opacity=opacity;
+			//img.style.opacity=opacity;
+		}
+		else{
+			clearInterval(intervalID);
+		}
+	}	 
+
+    var counter = 0;
+    var i = setInterval(function(){
+        // do your thing
+        console.log(counter)
+        counter++;
+        if(counter === 10) {
+            clearInterval(i);
         }
-
+    }, 1000);    
+       
     </script>
-</body>
-    안녕<input id="floatingInput" type="text">
-    안녕2<input id="floatingPassword" type="password">
-    <button onclick="handleSignup()">버튼 입니다</button>
-</html>
+
+
