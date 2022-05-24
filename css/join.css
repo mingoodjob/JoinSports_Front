@@ -2,22 +2,23 @@ body {
     background-color: rgb(155, 208, 203);
 }
 
+.wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 .joinbox {          
     background-color: whitesmoke;
-    width: 400px;
-    height: 700px;
+    width: 600px;
+    height: 900px;
     border: 1px solid rgb(155, 208, 203);
     border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
-    top: 20px;
-    /* width: 100% */
-    left: 550px;
-    right: 800px; }
+    }
  
 @media (max-width: 400px) {
   .joinbox { width: 100% }
@@ -28,10 +29,9 @@ input[type=text] {
 
     background-color:  rgb(155, 208, 203);
     border: 0px;
-    height: 30px;
-    max-width: 500px;
-    width: 100%;
-    margin: 20px;
+    height: 50px;
+    width: 400px;
+    margin: 20px 0px 0px 30px;
 
 } 
 
@@ -47,7 +47,7 @@ input[type=text] {
 
 .choosephoto {
     border: 1px solid black;
-    font-size: 13px;
+    font-size: 20px;
     padding: 2px;
 }
 
@@ -83,7 +83,7 @@ input[type=text] {
     bottom: 10px;
     right: 177px;
     border: 1px solid black;
-    font-size: 13px;
+    font-size: 20px;
     padding: 2px;
 }
 
@@ -100,8 +100,8 @@ input[type=text] {
 }
 
 .mainimg {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
 }
 
 .preview {

@@ -2,7 +2,6 @@ const backend_base_url = "http://127.0.0.1:5001"
 const frontend_base_url = "http://127.0.0.1:5500"
 
 $(document).ready(function() {
-    $('#choosephoto').hide();
     $('#submitphoto').hide();
     $('#preview').hide();
     $('#x1').hide()
@@ -12,11 +11,7 @@ $(document).ready(function() {
     $('#good2').hide()
     $('#good3').hide()
   
-    
-    $('#choosephoto').click(function () {
-        $('#choosephoto').hide();
 
-    });
 
 
     $("#pr_photo").change(function () {
