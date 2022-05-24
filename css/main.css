@@ -131,6 +131,7 @@ p {
 }
 
 .modal_pr_info {
+    width: 600px;
     padding: 30px 30px;
     display: flex;
     /* justify-content: space-between; */

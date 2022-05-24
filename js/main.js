@@ -14,6 +14,8 @@ async function modal(idnumber) {
   response_json = await response.json();
   const datas = response_json.datas;
   const comments = response_json.comments;
+  const uid = response_json.uid;
+  
 
   if (response.status == 200) {
     let _id = datas._id;
@@ -44,7 +46,7 @@ async function modal(idnumber) {
     <!-- 수정 팝업끝 -->
 
     <!-- 삭제 팝업 -->
-            <div class="comment_delete">
+            <div class="comment_delete" id="comment_delete">
                 <button onclick="comment_delete_submit()">삭제</button>
                 <button>취소</button>
             </div>
@@ -77,13 +79,13 @@ async function modal(idnumber) {
     </div>
     <div class="modal_pr_info">
         <div onclick=pr_img_edit(${email}) class="pr_photo">
-            <img src="${pr_photo}">
+            <img id="modal_pr_photo" src="${pr_photo}">
         </div>
         <div class="pr_desc">
             <div>
                 <div class="pr_desc_title">닉네임</div>
                 <div id="pr_desc_content" class="pr_desc_content">${nick}</div>
-                <div onclick=pr_edit() class="pr_desc_edit">프로필편집</div>
+                <div onclick=pr_edit() id="pr_desc_edit" class="pr_desc_edit">프로필편집</div>
             </div>
             <div>
                 <div class="pr_desc_title">이메일</div>
@@ -134,11 +136,11 @@ async function modal(idnumber) {
 
 </div>`;
 
-    document.querySelector("#modal_body").innerHTML = html;
+    document.getElementById("modal_body").innerHTML = html;
 
     comments.forEach((comment) => {
       let comment_content = `<div class="modal_comment">
-      <div class="comment_pr_photo"><img src="2.jpeg"></div>
+      <div class="comment_pr_photo"><img src="${comment.pr_photo}"></div>
       <div class="comment_content_box">
           <div class="comment_content">
               ${comment.comment}
@@ -146,12 +148,44 @@ async function modal(idnumber) {
           <div class="comment_bottom_info">
               <div class="comment_nick">${comment.nick}</div>
               <div class="comment_content_time">${comment.date}</div>
-              <div onclick="comment_edit('${comment._id}')" class="comment_content_edit">수정</div>
-              <div onclick="comment_delete('${comment._id}')" class="comment_content_delete">삭제</div>
+              
           </div>
       </div>
   </div>`;
-      document.querySelector("#comment_list").innerHTML += comment_content;
+
+      if (uid == comment.nick){
+        console.log(comment.nick)
+        comment_content = `<div class="modal_comment">
+      <div class="comment_pr_photo"><img src="${comment.pr_photo}"></div>
+      <div class="comment_content_box">
+          <div class="comment_content">
+              ${comment.comment}
+          </div>
+          <div class="comment_bottom_info">
+              <div class="comment_nick">${comment.nick}</div>
+              <div class="comment_content_time">${comment.date}</div>
+              <div onclick="comment_edit('${comment._id}')" id="comment_content_edit" class="comment_content_edit">수정</div>
+              <div onclick="comment_delete('${comment._id}')" id="comment_content_delete" class="comment_content_delete">삭제</div>
+          </div>
+      </div>
+  </div>`;
+      }else{
+        console.log('같지 않습니다.')
+        comment_content = `<div class="modal_comment">
+      <div class="comment_pr_photo"><img src="${comment.pr_photo}"></div>
+      <div class="comment_content_box">
+          <div class="comment_content">
+              ${comment.comment}
+          </div>
+          <div class="comment_bottom_info">
+              <div class="comment_nick">${comment.nick}</div>
+              <div class="comment_content_time">${comment.date}</div>
+          </div>
+      </div>
+  </div>`;
+      }
+
+      document.getElementById("comment_list").innerHTML += comment_content;
     });
 
     let modal = document.getElementById("modal_body");
@@ -174,8 +208,14 @@ async function modal(idnumber) {
     //   }
     // });
 
-    document.querySelector("#comment_list").scrollTop =
-      document.querySelector("#comment_list").scrollHeight;
+    document.getElementById("comment_list").scrollTop =
+      document.getElementById("comment_list").scrollHeight;
+
+      if (uid == nick) {
+        document.getElementById("pr_desc_edit").style.display = "flex"
+      }else{
+        document.getElementById("pr_desc_edit").style.display = "none"
+      }
   } else {
     alert(response.status);
   }
@@ -195,31 +235,13 @@ async function comment() {
   });
 
   response_json = await response.json();
-  let nickname = response_json.nickname;
-  let pr_photo = response_json.pr_photo;
 
   if (response.status == 200) {
-    let comment_text = document.getElementById("comment_text");
-
-    html = `<div class="modal_comment">
-        <div class="comment_pr_photo"><img src="${pr_photo}"></div>
-        <div class="comment_content_box">
-            <div class="comment_content">
-                ${comment_text.value}
-            </div>
-            <div class="comment_bottom_info">
-            <div class="comment_nick">${nickname}</div>
-            <div class="comment_content_time">방금</div>
-            <div class="comment_content_edit">수정</div>
-            <div class="comment_content_delete">삭제</div>
-            </div>
-        </div>
-    </div>`;
 
     feed_number = sessionStorage.getItem('_id')
     modal(feed_number)
-    document.querySelector("#comment_list").scrollTop =
-      document.querySelector("#comment_list").scrollHeight;
+    document.getElementById("comment_list").scrollTop =
+      document.getElementById("comment_list").scrollHeight;
   } else {
     alert(response.status);
   }
@@ -247,7 +269,7 @@ async function user_load() {
           <img src="${user.pr_photo}">
       </div>`;
 
-    document.querySelector("#member_list").innerHTML += html;
+    document.getElementById("member_list").innerHTML += html;
   });
 
   // return response_json.users;
@@ -262,7 +284,7 @@ function pr_edit_close() {
 }
 
 function comment_edit_close() {
-  document.querySelector(".comment_edit_box").style.display = "none";
+  document.getElementById("comment_edit_box").style.display = "none";
 }
 
 async function pr_edit_submit(emailuid){
@@ -299,14 +321,12 @@ async function comment_edit(cm_number) {
     body: JSON.stringify(commentdata),
   });
 
-  // document.querySelector(".comment_edit_box").style.display = "block"
-
   response_json = await response.json();
 
   if (response.status == 200) {
     const cm_data = response_json.cm_data;
 
-    document.querySelector("#edit_input").value = cm_data["comment"];
+    document.getElementById("edit_input").value = cm_data["comment"];
     html = `        <div class="comment_edit_title">
     <div onclick="comment_edit_close()">
         취소
@@ -321,15 +341,15 @@ async function comment_edit(cm_number) {
 <div class="comment_edit_input">
     <textarea id="edit_input">${cm_data["comment"]}</textarea>
 </div>`;
-    document.querySelector("#comment_edit_box").innerHTML = html;
-    document.querySelector("#comment_edit_box").style.display = "block";
+    document.getElementById("comment_edit_box").innerHTML = html;
+    document.getElementById("comment_edit_box").style.display = "block";
   } else {
     alert(response.status);
   }
 }
 
 async function comment_edit_submit(cm_number) {
-  value = document.querySelector("#edit_input").value;
+  value = document.getElementById("edit_input").value;
   const commentdata = {
     cm_number: cm_number,
     value: value,
@@ -340,7 +360,7 @@ async function comment_edit_submit(cm_number) {
     body: JSON.stringify(commentdata),
   });
 
-  document.querySelector("#comment_edit_box").style.display = "none";
+  document.getElementById("comment_edit_box").style.display = "none";
 
   feed_number = sessionStorage.getItem('_id')
   modal(feed_number)
@@ -356,12 +376,12 @@ async function comment_edit_submit(cm_number) {
 function comment_delete(cm_number) {
   let number = cm_number
   sessionStorage.setItem("cm_number", number);
-  document.querySelector('.comment_delete').style.display = "flex"
+  document.getElementById('comment_delete').style.display = "flex"
 }
 
 async function comment_delete_submit(){
   cm_number = sessionStorage.getItem('cm_number')
-  document.querySelector('.comment_delete').style.display = "none"
+  document.getElementById('comment_delete').style.display = "none"
   
   const data = {
     cm_number: cm_number,
