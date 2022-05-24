@@ -68,6 +68,7 @@ p {
 }
 
 .modal_title {
+    position: relative;
     width: 100%;
     height: 50px;
     background-color: #000000;
@@ -77,6 +78,43 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.modal_title div:nth-child(1){
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+.modal_title div:nth-child(2){
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+    border-radius: 50%;
+    background-color: rgb(25, 0, 255);
+}
+.modal_title div:nth-child(3){
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 90px;
+    border-radius: 50%;
+    background-color: rgb(251, 255, 0);
+    color: black;
 }
 
 .pr_desc_title_tmi {
@@ -101,7 +139,7 @@ p {
 .pr_desc {
     margin: 0 0 0 40px;
     max-width: 350px;
-    max-height: 500px;
+    max-height: 400px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -155,7 +193,7 @@ p {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 20%;
+    height: 30px;
     font-size: 14px;
     color: whitesmoke;
     background-color: tomato;
@@ -186,7 +224,7 @@ p {
     border-radius: 10px;
     position: absolute;
     width: 250px;
-    max-width: 300px;
+    max-width: 200px;
     height: 150px;
     background-color: rgb(170, 170, 170);
 }
@@ -294,6 +332,7 @@ p {
 }
 
 .comment_content_box_list {
+    max-height: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;

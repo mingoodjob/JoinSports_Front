@@ -71,9 +71,12 @@ async function modal(idnumber) {
     <!-- 프로필 편집 END -->
     <div class="modal_title">
         멤버 카드
+        <div onclick="modal_close()"><i class="fa-solid fa-x"></i></div>
+        <div><i class="fa-regular fa-square-full"></i></div>
+        <div><i class="fa-solid fa-minus"></i></div>
     </div>
     <div class="modal_pr_info">
-        <div class="pr_photo">
+        <div onclick=pr_img_edit(${email}) class="pr_photo">
             <img src="${pr_photo}">
         </div>
         <div class="pr_desc">
@@ -377,6 +380,14 @@ async function comment_delete_submit(){
     alert(response.status);
   }
 
+}
+
+async function pr_img_edit(email) {
+  console.log(email)
+}
+
+function modal_close() {
+  document.getElementById('modal_body').style.display = 'none'
 }
 
 function slide() {
