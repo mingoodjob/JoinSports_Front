@@ -49,12 +49,8 @@ async function login(){
 
     if(response_json.result == 'success') {
         alert(response_json.message)
-        window.location.href=(`${frontend_base_url}/main.html`);
+        window.location.href=(`${frontend_base_url}/event.html`);
     }
-    
-     
-
-
 }
 
 // async function getName(){
