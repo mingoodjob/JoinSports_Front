@@ -29,18 +29,6 @@ $(document).ready(function() {
 
     });
 
-//     $('#checkbutton').click(function () {
-//     if ($('#good1, #good2, #good3').show) {
-//         // #여러 id한번에 부르기
-//         $('#choosephoto').show();
-//     }
-//     else {
-//         $('#choosephoto').hide();
-//     }
-// });
-
-
-
 
 });
 
@@ -53,20 +41,12 @@ async function join(){
     let pwd = document.getElementById("pwd").value
     let formdata = new FormData()
     
-    
-
-    
-
     formdata.append('filegive', pr_photo)
     formdata.append('email', email)
     formdata.append('nick', nick)
     formdata.append('pwd', pwd)
     console.log(formdata)
 
-    
-        
-     
-    
     const response = await fetch(`${backend_base_url}/join`,{
         method:'POST',
         body : formdata
@@ -84,7 +64,7 @@ async function join(){
     }
 }
 
-
+// #이메일 중복체크
 function check_email() {
 
     let email = $('#email').val()
@@ -107,6 +87,7 @@ function check_email() {
 })
 };
 
+// #닉네임 중복체크
 function check_nick() {
 
     let nick = $('#nick').val()
@@ -158,12 +139,6 @@ function test() {
 
       
     }
-
-    // good이 3개 다 나와야 사진입력버튼이 나오도록
-    // if (($("#good1").show)&&($("#good2").show)&&($("#good3").show)) {
-    //     $('#choosephoto').show();
-    // }
-
 
 
 function readURL(input) {

@@ -47,11 +47,13 @@ async function login(){
     console.log(response_json)
     localStorage.setItem("token", response_json.token)
 
-        
-    if (response['result'] == "success") {
-        alert="로그인 성공!"
-        window.location.href = "메인 이동";
+    if(response_json.result == 'success') {
+        alert(response_json.message)
+        location.href=  "메인페이지" 
     }
+    
+     
+
 
 }
 
