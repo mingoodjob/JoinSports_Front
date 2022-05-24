@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(155, 208, 203);
+    background-image: url('https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/b2e2vt40v0xzlsohhhsc/%EB%B0%94%EB%A5%B4%EC%85%80%EB%A1%9C%EB%82%98%20FC%20%EB%B0%94%EB%A5%B4%EC%85%80%EB%A1%9C%EB%82%98%20%EC%BA%84%ED%94%84%20%EB%88%84%20%EA%B2%BD%EA%B8%B0%EC%9E%A5%20%ED%88%AC%EC%96%B4.jpg');
+    background-size: cover;   
 }
 
 .wrap {
@@ -9,6 +10,7 @@ body {
 }
 
 .loginbox {          
+    margin-top: 100px;
     background-color: whitesmoke;
     width: 600px;
     height: 900px;
@@ -55,8 +57,16 @@ input[type=text] {
     bottom: 10px;
     left: 240px;
 }
+.inputdiv input{
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #949494;
+    text-align: center;
+}
 
 .mainimg {
+    border-radius: 50px;
     width: 400px;
     height: 300px;
 }
@@ -69,10 +79,12 @@ input[type=text] {
     border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
+    border: none;
 }
 
 .buttonlogin {
     border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
+    border: none;
 }

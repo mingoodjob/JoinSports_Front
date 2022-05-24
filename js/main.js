@@ -14,7 +14,7 @@ async function modal(idnumber) {
   response_json = await response.json();
   const datas = response_json.datas;
   const comments = response_json.comments;
-  const uid = response_json.uid;
+  const uid = 'dkssud1'
   
 
   if (response.status == 200) {
@@ -246,7 +246,6 @@ async function comment() {
     alert(response.status);
   }
 
-  return nickname;
 }
 
 function enter_submmit() {
@@ -434,6 +433,32 @@ function slide() {
 
   // setInterval(() => document.getElementById('slide').src = img_list[2], 2000);
 }
+
+async function menu(menu){
+  const data = {
+    category: menu,
+  };
+
+  const response = await fetch(`${backend_base_url}/gategory`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+
+  response_json = await response.json();
+  document.getElementById("member_list").innerHTML = ''
+  const users = response_json.users;
+  console.log(users);
+  users.forEach((user) => {
+    html = `<div id="member_lists" class="member_lists" onclick="modal('${user._id}')">
+          <img src="${user.pr_photo}">
+      </div>`;
+
+    document.getElementById("member_list").innerHTML += html;
+  });
+
+  // return response_json.users;
+}
+
 
 user_load();
 slide();
