@@ -1,0 +1,113 @@
+body {
+    background-image: url('https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/b2e2vt40v0xzlsohhhsc/%EB%B0%94%EB%A5%B4%EC%85%80%EB%A1%9C%EB%82%98%20FC%20%EB%B0%94%EB%A5%B4%EC%85%80%EB%A1%9C%EB%82%98%20%EC%BA%84%ED%94%84%20%EB%88%84%20%EA%B2%BD%EA%B8%B0%EC%9E%A5%20%ED%88%AC%EC%96%B4.jpg');
+    background-size: cover;   
+}
+
+.wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+.joinbox {          
+    background-color: whitesmoke;
+    width: 600px;
+    height: 900px;
+    border: 1px solid rgb(155, 208, 203);
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    }
+ 
+@media (max-width: 400px) {
+  .joinbox { width: 100% }
+}
+
+
+input[type=text] {
+
+    background-color:  rgb(155, 208, 203);
+    border: 0px;
+    height: 50px;
+    width: 400px;
+    margin: 20px 0px 0px 30px;
+
+} 
+
+.inputbox {
+    position: relative;
+    right: 20px;
+
+}
+.inputbox input {
+    border-radius: 30px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #a7a7a7;
+}
+
+.inputdiv {
+    margin-bottom: 50px;
+}
+
+.choosephoto {
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
+    padding: 2px;
+    border: none;
+}
+
+.choosephoto:hover {
+    cursor: pointer;
+}
+
+.submitphoto:hover {
+    cursor: pointer;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.checkbutton {
+    position: absolute;
+    bottom: 24px;
+    left: 150px;
+    width:70px;
+    border: 1px solid white;
+    color:rgb(155, 208, 203);
+    font-weight: bold;
+}
+
+.checkbutton:hover {
+    cursor: pointer;
+}
+
+
+.submitphoto {
+    display: flex;
+    justify-content:center;
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
+    padding: 2px;
+    margin: 10px 15px 0px 0px;
+}
+
+.mainimg {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 50px;
+    opacity: 0.7;
+}
+
+.preview {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content:center;
+    margin-right: 20px;
+}

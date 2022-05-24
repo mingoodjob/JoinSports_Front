@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./css/login.css" />
+    <!-- #css 임포트 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/login.js"></script>
+    <!-- javascript 임포트 -->
+</head>
+<body>
+    
+    <form>
+        <div class="wrap">
+            <div class="loginbox">
+            <img class="mainimg" src="https://img.freepik.com/free-photo/young-basketball-player-in-motion-on-gradient-studio-background-in-neon-light_155003-14802.jpg?w=360">
+                <p class="text">𝙡𝙚𝙩'𝙨 𝙟𝙤𝙞𝙣 𝙪𝙨!</p>
+                <div class="inputdiv">
+                    <div class="inputbox">
+                        <input type="text" id="email" class="email" placeholder="이메일">
+                        <p class="x" id="x1" >❌</p>
+                        <p class="good" id="good1" >👍</p>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="pwd" class="pwd" placeholder="비밀번호">
+                        <p class="x" id="x2" >❌</p>
+                        <p class="good" id="good2" >👍</p>
+                    </div>
+                </div>
+                <label for="loginbutton" id="buttonlogin"  class="buttonlogin">
+                    LOGIN
+                </label>
+                <input type="button" id="loginbutton" onclick="login()" style="display:none">
+                <br>
+                <hr style="border: dashed smokewhite; width: 400px;">
+                <p class="jointext">아직 회원이 아니신가요?</p>
+                <!-- <button id="joinbutton" class="joinbutton">JOIN US</button> -->
+                <label for="joinbutton" id="buttonjoin" class="buttonjoin">
+                    JOIN US
+                </label>
+                <input type="button" id="joinbutton" style="display:none">
+            </div>
+
+    
+        </div>
+
+
+
+    </form>
+</body>
+</html>
