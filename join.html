@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+    <link rel="stylesheet" href="join.css" type="text/css"/>
+    <!-- #css 임포트 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="join.js"></script>
+    <!-- javascript 임포트 -->
+</head>
+<body>
+    <form>
+        <div class="wrap">
+            <div class="joinbox">
+                <img class="mainimg" src="https://www.wallpaperkiss.com/wimg/b/166-1663629_big.jpg">
+                <p class="text">𝙅𝙤𝙞𝙣 𝙩𝙤 𝙅𝙤𝙞𝙣 𝙎𝙥𝙤𝙧𝙩𝙨!</p>
+                
+                <div class="inputdiv">
+                <div class="inputbox">
+                    <input type="text" id="email" class="email" placeholder="이메일">
+                    <button type="button" class="checkbutton" onclick="check_email()" >중복확인</button>
+                    <p class="x" id="x1" >❌</p>
+                    <p class="good" id="good1" >👍</p>
+                </div>
+                <div class="inputbox">
+                    <input type="text" id="nick" class="nick" placeholder="닉네임">
+                    <button type="button" class="checkbutton" onclick="check_nick()" >중복확인</button>
+                    <p class="x" id="x2">❌</p>
+                    <p class="good" id="good2" >👍</p>
+                </div>
+                <div class="inputbox">
+                    <input type="text" id="pwd" class="pwd" placeholder="비밀번호">
+                </div>
+                <div class="inputbox">
+                    <input type="text" id="pwd_check" class="pwd_check" placeholder="한번더!">
+                    <button type="button" class="checkbutton" id="checkbutton" onclick="test()" >일치확인</button>
+                    <p class="x" id="x3">❌</p>
+                    <p class="good" id="good3" >👍</p>
+                </div>  
+                </div>
+
+                <div class="photobox" id="photobox">
+                <label for="pr_photo" id="choosephoto" class="choosephoto" >
+                    사진등록하기
+                </label>
+                <input type="file" id="pr_photo" style="display:none"/>
+
+                <img id="preview" class="preview" src="#" alt=""/>
+
+                <label for="photo" id="submitphoto" class="submitphoto">
+                    JOIN US
+                </label>
+                <input onclick="join()" id="photo" type="button" style="display:none" >
+        
+            </div>
+
+    
+        </div>
+
+
+
+    </form>
+</body>
+</html>

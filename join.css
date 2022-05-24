@@ -1,0 +1,112 @@
+body {
+    background-color: rgb(155, 208, 203);
+}
+
+
+.joinbox {          
+    background-color: whitesmoke;
+    width: 400px;
+    height: 700px;
+    border: 1px solid rgb(155, 208, 203);
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    /* width: 100% */
+    left: 550px;
+    right: 800px; }
+ 
+@media (max-width: 400px) {
+  .joinbox { width: 100% }
+}
+
+
+input[type=text] {
+
+    background-color:  rgb(155, 208, 203);
+    border: 0px;
+    height: 30px;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+
+} 
+
+.inputbox {
+    position: relative;
+    right: 20px;
+
+}
+
+.inputdiv {
+    margin-bottom: 50px;
+}
+
+.choosephoto {
+    border: 1px solid black;
+    font-size: 13px;
+    padding: 2px;
+}
+
+.choosephoto:hover {
+    cursor: pointer;
+}
+
+.submitphoto:hover {
+    cursor: pointer;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.checkbutton {
+    position: absolute;
+    bottom: 24px;
+    left: 150px;
+    width:70px;
+    border: 1px solid white;
+    color:rgb(155, 208, 203);
+    font-weight: bold;
+}
+
+.checkbutton:hover {
+    cursor: pointer;
+}
+
+
+.submitphoto {
+    position: absolute;
+    bottom: 10px;
+    right: 177px;
+    border: 1px solid black;
+    font-size: 13px;
+    padding: 2px;
+}
+
+.x {
+    position: absolute;
+    bottom: 10px;
+    left: 240px;
+}
+
+.good {
+    position: absolute;
+    bottom: 10px;
+    left: 240px;
+}
+
+.mainimg {
+    width: 300px;
+    height: 200px;
+}
+
+.preview {
+    position: absolute;
+    bottom: 50px;
+    left: 160px;
+    width: 70px;
+}
