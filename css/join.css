@@ -79,34 +79,23 @@ input[type=text] {
 
 
 .submitphoto {
-    position: absolute;
-    bottom: 10px;
-    right: 177px;
+    display: flex;
+    justify-content:center;
     border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
-}
-
-.x {
-    position: absolute;
-    bottom: 10px;
-    left: 240px;
-}
-
-.good {
-    position: absolute;
-    bottom: 10px;
-    left: 240px;
+    margin: 10px 15px 0px 0px;
 }
 
 .mainimg {
-    width: 400px;
-    height: 300px;
+    width: 320px;
+    height: 270px;
 }
 
 .preview {
-    position: absolute;
-    bottom: 50px;
-    left: 160px;
-    width: 70px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content:center;
+    margin-right: 20px;
 }

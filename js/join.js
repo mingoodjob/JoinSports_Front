@@ -5,7 +5,11 @@ $(document).ready(function() {
     $('#submitphoto').hide();
     $('#preview').hide();
 
+    $("#choosephoto").click(function () {
+        // pr_photo가 값이 바뀌면 아래와 같이 체인지
+        $("#choosephoto").hide()
 
+    });
 
     $("#pr_photo").change(function () {
         // pr_photo가 값이 바뀌면 아래와 같이 체인지
