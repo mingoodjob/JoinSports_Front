@@ -66,13 +66,13 @@ input[type=text] {
 }
 
 .buttonjoin {
-    border: 1px solid black;
+    border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
 }
 
 .buttonlogin {
-    border: 1px solid black;
+    border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
 }

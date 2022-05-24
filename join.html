@@ -22,29 +22,19 @@
                 <div class="inputdiv">
                 <div class="inputbox">
                     <input type="text" id="email" class="email" placeholder="이메일">
-                    <button type="button" class="checkbutton" onclick="check_email()" >중복확인</button>
-                    <p class="x" id="x1" >❌</p>
-                    <p class="good" id="good1" >👍</p>
                 </div>
                 <div class="inputbox">
                     <input type="text" id="nick" class="nick" placeholder="닉네임">
-                    <button type="button" class="checkbutton" onclick="check_nick()" >중복확인</button>
-                    <p class="x" id="x2">❌</p>
-                    <p class="good" id="good2" >👍</p>
                 </div>
                 <div class="inputbox">
                     <input type="text" id="pwd" class="pwd" placeholder="비밀번호">
                 </div>
                 <div class="inputbox">
                     <input type="text" id="pwd_check" class="pwd_check" placeholder="한번더!">
-                    <button type="button" class="checkbutton" id="checkbutton" onclick="test()" >일치확인</button>
-                    <p class="x" id="x3">❌</p>
-                    <p class="good" id="good3" >👍</p>
                 </div>  
                 </div>
-
                 <div class="photobox" id="photobox">
-                <label for="pr_photo" id="choosephoto" class="choosephoto" >
+                <label for="pr_photo" id="choosephoto" onclick="emailcheck()" class="choosephoto" >
                     사진등록하기
                 </label>
                 <input type="file" id="pr_photo" style="display:none"/>

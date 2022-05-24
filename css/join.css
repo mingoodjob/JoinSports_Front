@@ -46,7 +46,7 @@ input[type=text] {
 }
 
 .choosephoto {
-    border: 1px solid black;
+    border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
 }
@@ -82,7 +82,7 @@ input[type=text] {
     position: absolute;
     bottom: 10px;
     right: 177px;
-    border: 1px solid black;
+    border: 2px solid rgb(126, 169, 164);
     font-size: 20px;
     padding: 2px;
 }
