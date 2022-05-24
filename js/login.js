@@ -1,5 +1,5 @@
 const backend_base_url = "http://127.0.0.1:5001"
-const frontend_base_url = "http://127.0.0.1:5501"
+const frontend_base_url = "http://127.0.0.1:5500"
 
 $(document).ready(function() {
     $('#x1').hide()
@@ -49,7 +49,7 @@ async function login(){
 
     if(response_json.result == 'success') {
         alert(response_json.message)
-        location.href=  "메인페이지" 
+        window.location.href=(`${frontend_base_url}/main.html`);
     }
     
      

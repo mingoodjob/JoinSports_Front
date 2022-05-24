@@ -1,4 +1,4 @@
-const backend_base_url = "http://127.0.0.1:4000";
+const backend_base_url = "http://127.0.0.1:5001";
 const frontend_base_url = "http://127.0.0.1:5500";
 
 async function modal(idnumber) {
@@ -241,6 +241,7 @@ async function user_load() {
 
   response_json = await response.json();
   const users = response_json.users;
+  console.log(users);
   users.forEach((user) => {
     html = `<div onclick="modal('${user._id}')">
           <img src="${user.pr_photo}">
