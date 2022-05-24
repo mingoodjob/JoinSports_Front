@@ -2,30 +2,31 @@ body {
     background-color: rgb(155, 208, 203);
 }
 
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .loginbox {          
     background-color: whitesmoke;
-    max-width: 400px;
-    height: 700px;
+    width: 600px;
+    height: 900px;
     border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    left: 550px;
-    right: 800px;
+
 }
 
 input[type=text] {
 
     background-color:  rgb(155, 208, 203);
     border: 0px;
-    height: 30px;
-    max-width: 500px;
-    width: 100%;
-    margin: 20px;
+    height: 50px;
+    width: 400px;
+    margin: 20px 0px 0px 30px;
 
 } 
 
@@ -56,22 +57,22 @@ input[type=text] {
 }
 
 .mainimg {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
 }
 
 .jointext {
-    font-size: 10px;
+    font-size: 17px;
 }
 
 .buttonjoin {
-    border: 1px solid black;
-    font-size: 13px;
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
     padding: 2px;
 }
 
 .buttonlogin {
-    border: 1px solid black;
-    font-size: 13px;
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
     padding: 2px;
 }

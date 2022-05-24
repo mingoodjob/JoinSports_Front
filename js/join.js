@@ -2,26 +2,17 @@ const backend_base_url = "http://127.0.0.1:5001"
 const frontend_base_url = "http://127.0.0.1:5500"
 
 $(document).ready(function() {
-    $('#choosephoto').hide();
     $('#submitphoto').hide();
     $('#preview').hide();
-    $('#x1').hide()
-    $('#x2').hide()
-    $('#x3').hide()
-    $('#good1').hide()
-    $('#good2').hide()
-    $('#good3').hide()
-  
-    
-    $('#choosephoto').click(function () {
-        $('#choosephoto').hide();
+
+    $("#choosephoto").click(function () {
+        // pr_photo가 값이 바뀌면 아래와 같이 체인지
+        $("#choosephoto").hide()
 
     });
 
-
     $("#pr_photo").change(function () {
         // pr_photo가 값이 바뀌면 아래와 같이 체인지
-        console.log("prchange")
         readURL(this);
         $("#preview").show();
         $("#submitphoto").show();
@@ -62,10 +53,10 @@ async function join(){
     }else{
         alert(response.status)
     }
-}
+};
 
 // #이메일 중복체크
-function check_email() {
+function emailcheck() {
 
     let email = $('#email').val()
 
@@ -75,20 +66,18 @@ function check_email() {
         data: {email_give: email},
         success: function (response) {
             if (response['result'] == "success") {
-                $("#good1").show();
-                $("#x1").hide();
+                nickcheck();
             }
             else{
-                $("#x1").show();
                 $('#email').val('');
+                alert("🙅 : 이메일 중복!")
             }
-            console.log(response['result'])
     }
 })
-};
+}
 
 // #닉네임 중복체크
-function check_nick() {
+function nickcheck() {
 
     let nick = $('#nick').val()
 
@@ -98,41 +87,32 @@ function check_nick() {
         data: {nick_give:nick},
         success: function (response) {
             if (response['result'] == "success") {
-                $("#good2").show();
-                $("#x2").hide();
+                test();
             }
-            else{
-                $("#x2").show();
+            else{   
                 $('#nick').val('');
+                alert("🙅 : 닉네임 중복!");
             }
             
     }
 })
-};
+}
 
 // 비밀번호 일치확인 - 일치하지 않거나 6자리 미만 입력시 입력칸 비워지게
 function test() {
     var p1 = document.getElementById('pwd').value;
     var p2 = document.getElementById('pwd_check').value;
     if( p1 == p2) {
-        $("#good3").show();
-        $("#x3").hide();
-        if (($('#good1, #good2').show) && (p1 == p2) && (p1.length > 5) ) {
-            // #여러 id한번에 부르기
-            $('#choosephoto').show();
-        }
+        if (p1.length > 5) {
+            alert("🙆 : 좋아하는 운동 사진을 선택해주세요!");   
+                }
         else {
-            $('#choosephoto').hide();
-        }
-    if (p1.length < 6){
-        alert("비밀번호는 6자리 이상이어야 합니다");
-        $("#good3").hide();
-        $("#x3").show();
-        $('#pwd').val('');
-        $('#pwd_check').val('');
-    }}
-     else {
-        $("#x3").show();
+            alert("비밀번호는 6자리 이상이어야 합니다");
+            $('#pwd').val('');
+            $('#pwd_check').val('');
+        }}
+         else {
+        alert("🙅 : 비밀번호 미일치!");
         $('#pwd').val('');
         $('#pwd_check').val('');
     }

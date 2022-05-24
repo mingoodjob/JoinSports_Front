@@ -2,22 +2,23 @@ body {
     background-color: rgb(155, 208, 203);
 }
 
+.wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 .joinbox {          
     background-color: whitesmoke;
-    width: 400px;
-    height: 700px;
+    width: 600px;
+    height: 900px;
     border: 1px solid rgb(155, 208, 203);
     border-radius: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
-    top: 20px;
-    /* width: 100% */
-    left: 550px;
-    right: 800px; }
+    }
  
 @media (max-width: 400px) {
   .joinbox { width: 100% }
@@ -28,10 +29,9 @@ input[type=text] {
 
     background-color:  rgb(155, 208, 203);
     border: 0px;
-    height: 30px;
-    max-width: 500px;
-    width: 100%;
-    margin: 20px;
+    height: 50px;
+    width: 400px;
+    margin: 20px 0px 0px 30px;
 
 } 
 
@@ -46,8 +46,8 @@ input[type=text] {
 }
 
 .choosephoto {
-    border: 1px solid black;
-    font-size: 13px;
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
     padding: 2px;
 }
 
@@ -79,34 +79,23 @@ input[type=text] {
 
 
 .submitphoto {
-    position: absolute;
-    bottom: 10px;
-    right: 177px;
-    border: 1px solid black;
-    font-size: 13px;
+    display: flex;
+    justify-content:center;
+    border: 2px solid rgb(126, 169, 164);
+    font-size: 20px;
     padding: 2px;
-}
-
-.x {
-    position: absolute;
-    bottom: 10px;
-    left: 240px;
-}
-
-.good {
-    position: absolute;
-    bottom: 10px;
-    left: 240px;
+    margin: 10px 15px 0px 0px;
 }
 
 .mainimg {
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 270px;
 }
 
 .preview {
-    position: absolute;
-    bottom: 50px;
-    left: 160px;
-    width: 70px;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content:center;
+    margin-right: 20px;
 }
